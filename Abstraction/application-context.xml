@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Engines -->
+    <bean id="e1" class="com.itp.model.Engine">
+        <constructor-arg value="1.5"/>
+        <constructor-arg value="1500"/>
+        <constructor-arg value="Tata"/>
+        <constructor-arg value="Petrol"/>
+    </bean>
+
+    <bean id="e2" class="com.itp.model.Engine">
+        <constructor-arg value="2.5"/>
+        <constructor-arg value="2500"/>
+        <constructor-arg value="Mahindra"/>
+        <constructor-arg value="Diesel"/>
+    </bean>
+
+    <!-- Gears -->
+    <bean id="g1" class="com.itp.model.Gear">
+        <constructor-arg value="6"/>
+        <constructor-arg value="Tata"/>
+        <constructor-arg value="Automatic"/>
+    </bean>
+
+    <bean id="g2" class="com.itp.model.Gear">
+        <constructor-arg value="8"/>
+        <constructor-arg value="Toyota"/>
+        <constructor-arg value="Manual"/>
+    </bean>
+
+    <!-- Prototype Gear -->
+    <bean id="gear" class="com.itp.model.Gear" scope="prototype">
+        <property name="gearLever" value="8"/>
+        <property name="gearMfgName" value="Mahindra"/>
+        <property name="gearType" value="Manual"/>
+    </bean>
+
+    <!-- Cars -->
+    <bean id="c1" class="com.itp.model.Car">
+       <constructor-arg value="Q3"/>
+        <constructor-arg value="Audi"/>
+        <constructor-arg value="100"/>
+        <constructor-arg value="Black"/>
+        <constructor-arg ref="e1"/>  <!-- Engine first -->
+        <constructor-arg ref="g1"/>  <!-- Gear second -->
+    </bean>
+
+    <bean id="c2" class="com.itp.model.Car">
+        <constructor-arg value="City"/>
+        <constructor-arg value="Honda"/>
+        <constructor-arg value="50"/>
+        <constructor-arg value="White"/>
+        <constructor-arg ref="e2"/>
+        <constructor-arg ref="g2"/>
+    </bean>
+
+</beans>
