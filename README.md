@@ -1,1 +1,1 @@
-# CoreJava
+This repository includes Java programs based on Object-Oriented Programming concepts such as classes, objects, inheritance, polymorphism, abstraction, encapsulation, method overloading, method overriding, constructors, interfaces, and inner classes. These programs are ideal for understanding real-world object-based problem-solving using Java.
